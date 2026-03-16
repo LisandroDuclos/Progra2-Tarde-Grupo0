@@ -1,1 +1,2 @@
 Se solicita el desarrollo de un sistema de gestión de pacientes para el servicio de guardia de un hospital de alta demanda. La solución debe implementar el TDA Cola (Queue) para garantizar que la atención se realice por orden de llegada, asegurando el cumplimiento estricto de la lógica FIFO (First-In, First-Out).
+Desarrollaremos metodos para, crear historia clinica del usuario, editar historia clinica, consultar historia clinica
