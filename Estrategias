@@ -1,0 +1,10 @@
+Se solicita el desarrollo de un sistema de gestión de pacientes para el servicio de guardia de un hospital de alta demanda. La solución debe implementar el TDA Cola (Queue) para garantizar que la atención se realice por orden de llegada, asegurando el cumplimiento estricto de la lógica FIFO (First-In, First-Out).
+
+Estrategia 1: Por cada remera que ordeno de la pila de ropa, voy contando y agregando +1 a la variable separada. Esto hace que se pueda ordenar rapido controlando cuanta ropa se guardo mediante la variable separada. 
+
+Estrategia 2: Cada vez que saco una prenda de la pila y la doblo, debo mover todas las prendas ya dobladas para guardar la ultima, en la ultima posicion ocupada. Esta opcion requiere un gran esfuerzo ya que por cada prenda que doblo, debo mover toda la pila para guardarla.
+
+Estrategia 3: Dejo de contar cuantas remeras de la pila ordene, si quiero saber cuantas hay debo mirar la pila de remeras ordenadas. Cada vez que doblo una, la agrego encima de la ultima posicion ocupada.
+Se solicita el desarrollo de un sistema de gestión de pacientes para el servicio de guardia de un hospital de alta demanda. La solución debe implementar el TDA Cola (Queue) para garantizar que la atención se realice por orden de llegada, asegurando el cumplimiento estricto de la lógica FIFO (First-In, First-Out).
+
+
