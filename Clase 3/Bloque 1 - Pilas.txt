@@ -1,0 +1,44 @@
+Bloque 1: Pilas (LIFO)
+
+Historial de Navegación: 
+El botón "Atrás" del Chrome. Si visitás fi.uba.ar, después campus.utn.edu.ar y por último stackoverflow.com. Consigna: Identifica qué se apila en cada paso y qué sucede (qué se desapila) cuando el usuario aprieta la flechita de "Atrás".
+
+Al visitar fi.uba.edu.ar, se apila el url en la posición 0 quedando en el Tope() de la pila.
+Cuando visitó la próxima página (campus.utn.edu.ar), se apila el url en la posición i + 1 cambiando el Tope() a este último url apilado.
+Se vuelve a repetir esta secuencia cuando visitó stackoverflow, quedando este url en el Tope() de la pila. Si el usuario decide dar click en la flechita ‘Atrás’ se desapila el Tope(Stackoverflow) de la pila, devolviendo el url visitado anteriormente (campus.utn.edu.ar). 
+Cada vez que el usuario ‘va para atrás’, se desapila la última posición y devuelve el Tope().
+
+--------------------------------------------------------------------------------------------------------------------------
+Editor De Código (undo/deshacer): 
+Estás codeando y borrás una línea por error. Consigna: Describí qué estado del código deberías Apilar cada vez que el usuario hace un cambio y cómo recuperás el estado anterior.
+
+Al realizar un cambio: Cada vez que editas (borras o escribes), el sistema debe Apilar (Push) el estado actual del código en la cima de la pila. Esto guarda una "foto" del momento justo después de la acción.
+
+Al deshacer (Ctrl+Z): El sistema ejecuta un Desapilar (Pop). Esto elimina el estado actual (el error) y deja como nuevo Tope al estado inmediatamente anterior, el cual se recarga en la pantalla.
+
+--------------------------------------------------------------------------------------------------------------------------
+Balanceo de Paréntesis:
+El compilador de Java chequea que no te hayas olvidado de cerrar una llave. Consigna: En la expresión ( ( a + b ) * c ), ¿en qué momento exacto hacés un Apilar y cuándo comparás para hacer un Desapilar?
+
+Para el balanceo de paréntesis, el compilador de Java utiliza una lógica de control de flujo donde solo los delimitadores afectan el estado de la estructura, ignorando temporalmente los operandos y operadores para centrarse en la integridad de la sintaxis. 
+El proceso consiste en recorrer la expresión de izquierda a derecha y ejecutar un Apilar() exclusivamente cada vez que se encuentra un símbolo de apertura, como un paréntesis o una llave, lo que va acumulando las deudas de cierre en la cima de la pila. El momento exacto de la comparación ocurre al detectar un símbolo de cierre, donde se realiza un Desapilar() para verificar si el elemento que sale del Tope() coincide en tipo con el cierre hallado, asegurando que se respete la jerarquía de anidación. Al finalizar el recorrido, la expresión se considera válida sólo si la función PilaVacia() devuelve un valor verdadero, confirmando que no quedaron aperturas pendientes ni se intentó cerrar más de lo debido, lo que garantiza un código libre de errores estructurales de este tipo.
+
+—------------------------------------------------------------------------------------------------------------------------
+Reversión de Strings:
+Querés dar vuelta la palabra "ALGORITMOS". Consigna: Explicá el proceso de meter letra por letra en la Pila y cómo quedan al sacarlas.
+
+Para resolverlo simplemente necesitas dos pilas: la Pila A (donde ya tenés cargada la palabra "ALGORITMOS") y una Pila B vacía. El proceso consiste en ejecutar un ciclo donde, mientras la Pila A no esté vacía, vas tomando el elemento del Tope mediante la función Desapilar e inmediatamente lo guardas en la Pila B usando la función Apilar.
+Al terminar el traspaso, la Pila B contendrá los elementos en el orden inverso (S-O-M-T-I-R-O-G-L-A) porque el último que entró en A (la 'S') fue el primero en salir y, por lo tanto, el primero en entrar al fondo de B. 
+
+---------------------------------------------------------------------------------------------------------------
+Pila de Llamadas (Call Stack):
+Cuando una función llama a otra. Consigna: Si Main() llama a CalcularPromedio() y esta llama a Sumar(), ¿quién está en el Tope() en el momento de la ejecución de la suma?
+
+Siguiendo la lógica de la pila de llamadas, el programa principal Main() es el primero en ser apilado, quedando en la base o fondo de la estructura. Cuando Main() invoca a CalcularPromedio(), esta función se apila sobre la anterior, y finalmente, al llamar a Sumar(), esta última se posiciona en la cima. Debido a la semántica LIFO (último en entrar, primero en salir), la función que se está ejecutando actualmente es siempre la que reside en el tope, mientras que las funciones anteriores permanecen en estado de espera en los niveles inferiores de la pila hasta que la función superior finalice y sea desapilada.
+
+----------------------------------------------------------------------------------------------------------------
+Navegación de Directorios:
+Entrás a C:/, luego a Usuarios, luego a Documentos. Consigna: ¿Cómo usás una Pila para que el sistema sepa a qué carpeta volver si apretás "Subir un nivel"?
+
+Al inicializar la navegación, la Pila comienza vacía y el primer Apilar() coloca al directorio raíz C:/ en la base (posición 0). A medida que profundizás en la estructura de carpetas (Usuarios, luego Documentos), cada nuevo subdirectorio se Apila() en la posición inmediata superior ($i+1$), de modo que el directorio actual siempre reside en el Tope(). Cuando necesitás "Subir un nivel", el sistema ejecuta un Desapilar() para eliminar la carpeta actual de la cima, permitiendo que el directorio padre emerja automáticamente como el nuevo tope y punto de visualización. Esta lógica garantiza que se respete la jerarquía, manteniendo siempre a C:/ como el último elemento posible de retorno en el fondo de la lista.
+
