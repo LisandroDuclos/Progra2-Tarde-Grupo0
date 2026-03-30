@@ -35,10 +35,3 @@ Prioridad 0 (Nivel Cosmético/Bajo): Asignada a solicitudes estéticas como el c
 
 
 
-
-
-En el sistema de soporte, los incidentes se gestionan por una Cola con Prioridad según la gravedad.
-Si se cae el servidor de la facultad: prioridad = 1000 .
- Si a un profesor no le anda el proyector: prioridad = 500. 
-Si un alumno olvidó su contraseña: prioridad = 10.
-El técnico siempre consulta el método Primero para resolver lo más grave antes que lo trivial, sin importar que el olvido de contraseña haya entrado hace más tiempo.
