@@ -1,6 +1,58 @@
 Fila del Cajero:
 Se implementa una estructura de cola convencional basada en el principio FIFO (First-In, First-Out). En este modelo, el orden de atención se rige estrictamente por el orden de llegada: el primer usuario en ingresar es el primero en ser atendido, sin que existan prioridades jerárquicas para otros individuos.
 
+package Implementacion;
+
+import Interfaces.ColaTDA;
+
+public class FilaCajero implements ColaTDA {
+
+    private static final int MAX = 50; // Capacidad máxima de la fila
+    private int[] alumnos;
+    private int cantidad;
+
+    @Override
+    public void InicializarCola() {
+        alumnos = new int[MAX];
+        cantidad = 0;
+    }
+
+    @Override
+    public void Encolar(int idAlumno) {
+        if (cantidad < MAX) {
+            // El alumno nuevo se ubica al final de la fila actual
+            alumnos[cantidad] = idAlumno;
+            cantidad++;
+            System.out.println("Alumno " + idAlumno + " ingresó a la fila.");
+        } else {
+            System.out.println("Fila llena: el alumno debe esperar afuera.");
+        }
+    }
+
+    @Override
+    public void Desencolar() {
+        if (!ColaVacia()) {
+            System.out.println("Atendiendo al alumno en el cajero...");
+            // Al salir el primero (índice 0), todos los demás avanzan un lugar
+            for (int i = 0; i < cantidad - 1; i++) {
+                alumnos[i] = alumnos[i + 1];
+            }
+            cantidad--;
+        }
+    }
+
+    @Override
+    public int Primero() {
+        // Devuelve el alumno que está al frente (el próximo a ser atendido)
+        return alumnos[0];
+    }
+
+    @Override
+    public boolean ColaVacia() {
+        return cantidad == 0;
+    }
+}
+
 Impresora De Laboratorio:
 En este escenario, se implementa una cola de impresión convencional sin jerarquías. El sistema procesa los documentos siguiendo un orden estrictamente secuencial: el primer archivo en ser encolado será el primero en imprimirse, sin considerar criterios de prioridad adicionales.
 
