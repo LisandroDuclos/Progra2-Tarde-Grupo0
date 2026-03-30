@@ -1,0 +1,6 @@
+### Padrón Electoral:
+> Se implementa una estructura de Conjuntos (sin repetición) donde cada alumno tiene asignado un valor dentro del ConjuntoTDA, el cual podría ser, por ejemplo, su número de legajo (el cual es único e irrepetible dentro del establecimiento). Cuando cada alumno vota, se agrega al conjunto su numero de legajo como valor Agregar(). Con la implementacion Pertenece(), verificamos si el alumno votó (retorna true, se encuentra en el conjunto) o si es que no votó (retorna false). Esto permite que ningún vivo quiera votar dos veces, donde el Pertenece() funciona para verificar, en caso que ya exista cierto legajo en el conjunto.
+
+
+### Invitados a la Fiesta de Fin de Cursada:
+> 
