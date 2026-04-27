@@ -19,14 +19,22 @@ public class Main {
         // DESAFÍO 2: "El turno justo" (Cola con Prioridad)
         // Objetivo: Contar elementos de P=1 sin perder los de otras prioridades.
         // -----------------------------------------------------------------------
-        ColaPrioTDA cp2 = new Implementaciones.ColaPrioDin();
-        cp2.InicializarCola();
-        cp2.AcolarPrioridad(10, 1);
-        cp2.AcolarPrioridad(20, 0);
-        cp2.AcolarPrioridad(30, 1);
-        System.out.println("[Desafío 2] Cantidad de elementos con Prioridad 1: " + contarPrioridadUno(cp2));
+        public static int contarPrioridadUno(ColaPrioTDA cola) {
+        ColaPrioTDA aux1 = new Implementaciones.ColaPrioDin(); aux1.InicializarCola();
+        ColaPrioTDA aux2 = new Implementaciones.ColaPrioDin(); aux2.InicializarCola();
 
+        while (!cola.ColaVacia() && cola.Prioridad() != 1)
+            { aux1.AcolarPrioridad(cola.Primero(), cola.Prioridad()); cola.Desacolar(); }
 
+        int cnt = 0;
+        while (!cola.ColaVacia() && cola.Prioridad() == 1)
+            { aux2.AcolarPrioridad(cola.Primero(), cola.Prioridad()); cola.Desacolar(); cnt++; }
+
+        while (!aux2.ColaVacia()) { cola.AcolarPrioridad(aux2.Primero(), aux2.Prioridad()); aux2.Desacolar(); }
+        while (!aux1.ColaVacia()) { cola.AcolarPrioridad(aux1.Primero(), aux1.Prioridad()); aux1.Desacolar(); }
+
+        return cnt;
+    }
         // -----------------------------------------------------------------------
         // DESAFÍO 3: "La pila que no miente" (Pila + Conjunto)
         // Objetivo: Detectar duplicados usando un Conjunto como memoria.
