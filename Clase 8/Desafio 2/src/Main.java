@@ -21,7 +21,6 @@ public class Main {
             contador++;
         }
 
-        // PASO 3: restaurar
         while (!auxiliar2.ColaVacia()) {
             cola.AcolarPrioridad(auxiliar2.Primero(), auxiliar2.Prioridad());
             auxiliar2.Desacolar();
@@ -47,7 +46,6 @@ public class Main {
         int resultado = contarPrioridad1(cola);
         System.out.println("Cantidad de P=1: " + resultado); // debe imprimir 3
 
-        // verificar que la cola quedó intacta
         System.out.println("Cola restaurada:");
         while (!cola.ColaVacia()) {
             System.out.println("  valor=" + cola.Primero() + " prioridad=" + cola.Prioridad());
