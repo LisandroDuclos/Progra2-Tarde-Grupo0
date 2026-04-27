@@ -7,4 +7,3 @@ public interface ColaTDA {
     boolean ColaVacia();
     int Primero();
 }
-
